@@ -11,6 +11,7 @@ class ProfileConstants {
       occupation: 'Fashion Designer',
       imageAsset: Images.h1,
       isOnline: true,
+      match: "89%"
     ),
     Profile(
       name: 'Emma Johnson',
@@ -18,6 +19,7 @@ class ProfileConstants {
       occupation: 'Marketing Manager',
       imageAsset: Images.h2,
       isOnline: true,
+      match: "90%"
     ),
     Profile(
       name: 'Sophia Williams',
@@ -25,6 +27,7 @@ class ProfileConstants {
       occupation: 'Graphic Designer',
       imageAsset: Images.h3,
       isOnline: false,
+      match: "85%"
     ),
     Profile(
       name: 'Olivia Brown',
@@ -32,6 +35,7 @@ class ProfileConstants {
       occupation: 'Software Engineer',
       imageAsset: Images.h4,
       isOnline: true,
+      match: "80%"
     ),
     Profile(
       name: 'Isabella Davis',
@@ -39,6 +43,7 @@ class ProfileConstants {
       occupation: 'Interior Designer',
       imageAsset: Images.h5,
       isOnline: false,
+      match: "88%"
     ),
     Profile(
       name: 'Mia Martinez',
@@ -46,6 +51,7 @@ class ProfileConstants {
       occupation: 'Photographer',
       imageAsset: Images.h6,
       isOnline: true,
+      match: "82%"
     ),
     Profile(
       name: 'Charlotte Garcia',
@@ -53,6 +59,7 @@ class ProfileConstants {
       occupation: 'Architect',
       imageAsset: Images.h7,
       isOnline: false,
+      match: "85%"
     ),
     Profile(
       name: 'Amelia Rodriguez',
@@ -60,6 +67,7 @@ class ProfileConstants {
       occupation: 'Content Creator',
       imageAsset: Images.h8,
       isOnline: true,
+      match: "94%"
     ),
   ];
 }
