@@ -5,7 +5,6 @@ import 'package:sw_dating_app/constants/profile_constants.dart';
 import 'package:sw_dating_app/resources/resources.dart';
 import 'package:sw_dating_app/widgets/profile_card.dart';
 import 'package:sw_dating_app/widgets/nav_bar_item.dart';
-import 'package:sw_dating_app/screens/favorites_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -196,7 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   index: 0,
                   selectedIndex: _selectedIndex,
                   imagePath: Images.slideShow,
-                  onTap: () => setState(() => _selectedIndex = 0),
+                  onTap: () => Navigator.pushReplacementNamed(context, '/home'),
                 ),
 
                 SizedBox(width: 10),
@@ -205,12 +204,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   index: 1,
                   selectedIndex: _selectedIndex,
                   imagePath: Images.heart,
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const FavoritesScreen(),
-                    ),
-                  ),
+                  onTap: () =>
+                      Navigator.pushReplacementNamed(context, '/favorites'),
                 ),
 
                 SizedBox(width: 10),
@@ -219,7 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   index: 2,
                   selectedIndex: _selectedIndex,
                   imagePath: Images.chat,
-                  onTap: () => setState(() => _selectedIndex = 2),
+                  onTap: () => Navigator.pushReplacementNamed(context, '/chat'),
                 ),
 
                 SizedBox(width: 10),
@@ -228,7 +223,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   index: 3,
                   selectedIndex: _selectedIndex,
                   imagePath: Images.user,
-                  onTap: () => setState(() => _selectedIndex = 3),
+                  onTap: () =>
+                      Navigator.pushReplacementNamed(context, '/profile'),
                 ),
               ],
             ),

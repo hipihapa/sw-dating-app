@@ -1,67 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sw_dating_app/resources/resources.dart';
-import 'package:sw_dating_app/screens/match_screen.dart';
 import 'package:sw_dating_app/widgets/nav_bar_item.dart';
 
-class FavoritesScreen extends StatefulWidget {
-  const FavoritesScreen({super.key});
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
 
   @override
-  State<FavoritesScreen> createState() => _FavoritesScreenState();
+  State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
-class _FavoritesScreenState extends State<FavoritesScreen> {
-  int _selectedIndex = 1;
+class _ProfileScreenState extends State<ProfileScreen> {
+  final int _selectedIndex = 3;
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      child: Stack(
+    return Scaffold(
+      body: Stack(
         children: [
-          Image.asset(Images.bg2, fit: BoxFit.cover),
+          Image.asset(
+            Images.bg2,
+            fit: BoxFit.cover,
+            width: double.infinity,
+            height: double.infinity,
+          ),
           SafeArea(
-            child: Material(
-              color: Colors.transparent,
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      top: 20.0,
-                      left: 80.0,
-                      right: 80.0,
-                    ),
-                    child: TabBar(
-                      labelColor: Colors.white,
-                      unselectedLabelColor: Colors.grey[300],
-                      indicatorColor: Colors.white,
-                      dividerColor: Colors.transparent,
-                      labelStyle: const TextStyle(fontSize: 18),
-                      tabs: const [
-                        Tab(text: 'Matches'),
-                        Tab(text: 'For You'),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: TabBarView(
-                      children: [
-                        MatchScreen(),
-                        Center(
-                          child: Text(
-                            'For You',
-                            style: GoogleFonts.poppins(
-                              color: Colors.white,
-                              fontSize: 24,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+            child: Center(
+              child: Text(
+                'Profile Screen',
+                style: GoogleFonts.poppins(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
           ),
@@ -96,7 +67,8 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                     index: 1,
                     selectedIndex: _selectedIndex,
                     imagePath: Images.heart,
-                    onTap: () => Navigator.pushReplacementNamed(context, '/favorites'),
+                    onTap: () =>
+                        Navigator.pushReplacementNamed(context, '/favorites'),
                   ),
                   SizedBox(width: 10),
                   NavBarItem(
