@@ -14,6 +14,7 @@ class Images {
   static const String h6 = 'images/h6.jpeg';
   static const String h7 = 'images/h7.jpeg';
   static const String h8 = 'images/h8.jpeg';
+  static const String heart = 'images/heart.png';
   static const String p1 = 'images/p1.jpeg';
   static const String p2 = 'images/p2.jpeg';
   static const String slideShow = 'images/slide-show.png';
