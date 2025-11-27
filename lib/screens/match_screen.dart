@@ -5,6 +5,8 @@ class MatchScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text("Match Screen"));
+    return Scaffold(
+      
+    );
   }
 }

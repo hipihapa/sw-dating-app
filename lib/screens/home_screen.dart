@@ -4,9 +4,18 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:sw_dating_app/constants/profile_constants.dart';
 import 'package:sw_dating_app/resources/resources.dart';
 import 'package:sw_dating_app/widgets/profile_card.dart';
+import 'package:sw_dating_app/widgets/nav_bar_item.dart';
+import 'package:sw_dating_app/screens/favorites_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +72,7 @@ class HomeScreen extends StatelessWidget {
           top: 160,
           left: 20,
           right: 20,
-          bottom: 180,
+          bottom: 260,
           child: CardSwiper(
             cardsCount: ProfileConstants.sampleProfiles.length,
             cardBuilder:
@@ -85,18 +94,22 @@ class HomeScreen extends StatelessWidget {
 
         // swipe buttons
         Positioned(
-          bottom: 50,
-          left: 20,
-          right: 20,
+          bottom: 140,
+          left: 80,
+          right: 80,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                width: 60,
-                height: 60,
+                width: 50,
+                height: 50,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.white,
+                  gradient: LinearGradient(
+                    begin: AlignmentGeometry.topLeft,
+                    end: AlignmentGeometry.topRight,
+                    colors: [Colors.blue.shade400, Colors.blue.shade800],
+                  ),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withValues(alpha: 0.1),
@@ -105,13 +118,41 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: const Icon(Icons.close, color: Colors.grey, size: 30),
+                child: const Icon(Icons.close, color: Colors.white, size: 20),
+              ),
+              Container(
+                width: 60,
+                height: 60,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  gradient: LinearGradient(
+                    begin: AlignmentGeometry.topLeft,
+                    end: AlignmentGeometry.topRight,
+                    colors: [Colors.purple.shade400, Colors.purple.shade800],
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.1),
+                      blurRadius: 10,
+                      offset: const Offset(0, 5),
+                    ),
+                  ],
+                ),
+                child: const Icon(Icons.bolt, color: Colors.white, size: 30),
               ),
               Container(
                 width: 50,
                 height: 50,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
+                  gradient: LinearGradient(
+                    begin: AlignmentGeometry.topLeft,
+                    end: AlignmentGeometry.topRight,
+                    colors: [
+                      const Color.fromARGB(255, 135, 92, 208),
+                      const Color.fromARGB(255, 152, 111, 223),
+                    ],
+                  ),
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
@@ -121,30 +162,78 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: const Icon(Icons.bolt, color: Colors.purple, size: 30),
-              ),
-              Container(
-                width: 60,
-                height: 60,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
+                child: const Icon(
+                  Icons.favorite,
                   color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.1),
-                      blurRadius: 10,
-                      offset: const Offset(0, 5),
-                    ),
-                  ],
+                  size: 20,
                 ),
-                child: const Icon(Icons.favorite, color: Colors.red, size: 30),
               ),
             ],
           ),
         ),
 
         // bottom navbar
-        
+        Positioned(
+          bottom: 0,
+          left: 0,
+          right: 0,
+          child: Container(
+            height: 80,
+            decoration: BoxDecoration(
+              color: Colors.black.withValues(alpha: 0.8),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.3),
+                  blurRadius: 10,
+                  offset: const Offset(0, -5),
+                ),
+              ],
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                NavBarItem(
+                  index: 0,
+                  selectedIndex: _selectedIndex,
+                  imagePath: Images.slideShow,
+                  onTap: () => setState(() => _selectedIndex = 0),
+                ),
+
+                SizedBox(width: 10),
+
+                NavBarItem(
+                  index: 1,
+                  selectedIndex: _selectedIndex,
+                  imagePath: Images.heart,
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FavoritesScreen(),
+                    ),
+                  ),
+                ),
+
+                SizedBox(width: 10),
+
+                NavBarItem(
+                  index: 2,
+                  selectedIndex: _selectedIndex,
+                  imagePath: Images.chat,
+                  onTap: () => setState(() => _selectedIndex = 2),
+                ),
+
+                SizedBox(width: 10),
+
+                NavBarItem(
+                  index: 3,
+                  selectedIndex: _selectedIndex,
+                  imagePath: Images.user,
+                  onTap: () => setState(() => _selectedIndex = 3),
+                ),
+              ],
+            ),
+          ),
+        ),
       ],
     );
   }
